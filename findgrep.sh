@@ -3,7 +3,7 @@
 usage()
 {
   # シェルスクリプトのファイル名を取得
-  local script_name=$(basename $0)
+  local script_name=$(basename "$0")
   # ヒヤドキュメントでヘルプを表示
   cat << END
 Usage: $script_name PATTERN [PATH] [NAME_PATTERN]
