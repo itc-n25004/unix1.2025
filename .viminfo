@@ -12,7 +12,7 @@
 ~H
 # コマンドライン 項目の履歴 (新しいものから古いものへ):
 :wq
-|2,0,1751333645,,"wq"
+|2,0,1751336945,,"wq"
 
 # 検索文字列 項目の履歴 (新しいものから古いものへ):
 
@@ -23,18 +23,137 @@
 # デバッグ行 項目の履歴 (新しいものから古いものへ):
 
 # レジスタ:
+""1	CHAR	0
+	#!/bin/bash
+	
+	pattern=$1
+	directory=$2
+	name=$3
+	
+	# 第2引数(起点ディレクトリ)が空文字列ならば、
+	# デフォルト値として . (カレントディレクトリ)を設定
+	if [ -z "$directory" ]; then
+	        directory='.'
+	fi
+	
+	# 第3引数(検索ファイルパターン)が空文字列ならば、
+	# デフォルト値として'*'を設定
+	if [ -z "$name" ]; then
+	  name='*'
+	fi
+	
+	# -n : print line number
+	# -H : print the file name
+	find "$directory" -type f  -name "$name" | xargs grep -nH "$pattern"
+|3,1,1,0,21,0,1751336926,"#!/bin/bash","","pattern=$1","directory=$2","name=$3","","# 第2引数(起点ディレクトリ)が空文字列ならば、","# デフォルト値として . (カレントディレクトリ)を設定","if [ -z \"$directory\" ]; then","        directory='.'","fi","","# 第3引数(検索ファイルパターン)が空文字列ならば、","# デフォルト値として'*'を設定","if [ -z \"$name\" ]; then","  name='*'","fi","",>26
+|<"# -n : print line number","# -H : print the file name","find \"$directory\" -type f  -name \"$name\" | xargs grep -nH \"$pattern\""
+"2	CHAR	0
+	#!/bin/bash
+	
+	pattern=$1
+	directory=$2
+	if [ -z "$directory" ]; then
+	        directory='.'
+	fi
+	find "$directory" -type f | xargs grep -nH "$pattern"
+|3,0,2,0,8,0,1751336751,"#!/bin/bash","","pattern=$1","directory=$2","if [ -z \"$directory\" ]; then","        directory='.'","fi","find \"$directory\" -type f | xargs grep -nH \"$pattern\""
+"3	CHAR	0
+	#!/bin/bash
+	
+	pattern=$1
+	directory=$2
+	if [ -z "$directory" ]; then
+	        directory='.'
+	fi
+	find "$directory" -type f | xargs grep -nH "$pattern"
+|3,0,3,0,8,0,1751335151,"#!/bin/bash","","pattern=$1","directory=$2","if [ -z \"$directory\" ]; then","        directory='.'","fi","find \"$directory\" -type f | xargs grep -nH \"$pattern\""
 
 # ファイルマーク:
-'0  3  41  ~/README.md
-|4,48,3,41,1751333646,"~/README.md"
+'0  45  67  ~/findgrep.sh
+|4,48,45,67,1751336945,"~/findgrep.sh"
+'1  45  67  ~/user2/findgrep.sh
+|4,49,45,67,1751336766,"~/user2/findgrep.sh"
+'2  1  67  ~/findgrep.sh
+|4,50,1,67,1751335160,"~/findgrep.sh"
+'3  21  67  ~/findgrep.sh
+|4,51,21,67,1751335160,"~/findgrep.sh"
+'4  3  41  ~/README.md
+|4,52,3,41,1751333646,"~/README.md"
 
 # ジャンプリスト (新しいものが先):
+-'  45  67  ~/findgrep.sh
+|4,39,45,67,1751336945,"~/findgrep.sh"
+-'  1  67  ~/findgrep.sh
+|4,39,1,67,1751336935,"~/findgrep.sh"
+-'  45  67  ~/user2/findgrep.sh
+|4,39,45,67,1751336766,"~/user2/findgrep.sh"
+-'  45  67  ~/user2/findgrep.sh
+|4,39,45,67,1751336766,"~/user2/findgrep.sh"
+-'  1  0  ~/user2/findgrep.sh
+|4,39,1,0,1751336724,"~/user2/findgrep.sh"
+-'  1  0  ~/user2/findgrep.sh
+|4,39,1,0,1751336724,"~/user2/findgrep.sh"
+-'  21  67  ~/findgrep.sh
+|4,39,21,67,1751335160,"~/findgrep.sh"
+-'  21  67  ~/findgrep.sh
+|4,39,21,67,1751335160,"~/findgrep.sh"
+-'  1  0  ~/findgrep.sh
+|4,39,1,0,1751335053,"~/findgrep.sh"
+-'  1  0  ~/findgrep.sh
+|4,39,1,0,1751335053,"~/findgrep.sh"
+-'  3  41  ~/README.md
+|4,39,3,41,1751333646,"~/README.md"
+-'  3  41  ~/README.md
+|4,39,3,41,1751333646,"~/README.md"
+-'  3  41  ~/README.md
+|4,39,3,41,1751333646,"~/README.md"
+-'  3  41  ~/README.md
+|4,39,3,41,1751333646,"~/README.md"
+-'  3  41  ~/README.md
+|4,39,3,41,1751333646,"~/README.md"
+-'  3  41  ~/README.md
+|4,39,3,41,1751333646,"~/README.md"
+-'  3  41  ~/README.md
+|4,39,3,41,1751333646,"~/README.md"
 -'  3  41  ~/README.md
 |4,39,3,41,1751333646,"~/README.md"
 -'  1  0  ~/README.md
 |4,39,1,0,1751333590,"~/README.md"
+-'  1  0  ~/README.md
+|4,39,1,0,1751333590,"~/README.md"
+-'  1  0  ~/README.md
+|4,39,1,0,1751333590,"~/README.md"
+-'  1  0  ~/README.md
+|4,39,1,0,1751333590,"~/README.md"
+-'  1  0  ~/README.md
+|4,39,1,0,1751333590,"~/README.md"
+-'  1  0  ~/README.md
+|4,39,1,0,1751333590,"~/README.md"
+-'  1  0  ~/README.md
+|4,39,1,0,1751333590,"~/README.md"
+-'  1  0  ~/README.md
+|4,39,1,0,1751333590,"~/README.md"
 
 # ファイル内マークの履歴 (新しいものから古いもの):
+
+> ~/findgrep.sh
+	*	1751336943	0
+	"	45	67
+	^	45	68
+	.	45	67
+	+	1	0
+	+	1	67
+	+	1	0
+	+	1	11
+	+	45	67
+
+> ~/user2/findgrep.sh
+	*	1751336764	0
+	"	45	67
+	^	45	68
+	.	45	67
+	+	2	0
+	+	45	67
 
 > ~/README.md
 	*	1751333643	0
